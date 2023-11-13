@@ -1,3 +1,4 @@
-export default function FAQPage() {
+const FAQPage = () => {
   return <>Доработка...</>;
-}
+};
+export default FAQPage;

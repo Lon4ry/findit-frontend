@@ -9,7 +9,7 @@ export default function HomeScreen() {
       <RadialGradientBackgroundComponent />
       <LogoMobileComponent />
       <LogoFullscreenComponent />
-      <main className={'fixed w-full h-full'}>
+      <main>
         <HomeContent />
       </main>
     </>

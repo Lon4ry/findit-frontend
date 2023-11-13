@@ -1,5 +1,6 @@
 import { Fragment, useState } from 'react';
 import { Transition } from '@headlessui/react';
+import { ibmPlexMono } from '@/lib/fonts';
 
 type CreateProfileWarningProps = { text: string; step: number; where: number };
 
@@ -31,9 +32,7 @@ export default function CreateProfileWarning({
       <div className={'fixed bottom-16 w-full'}>
         <div className={'flex justify-center'}>
           <h6
-            className={
-              'p-3 text-black text-center text-opacity-25 font-ibmPlexMono'
-            }
+            className={`p-3 text-black text-center text-opacity-25 ${ibmPlexMono.className} font-normal`}
           >
             {text}
           </h6>
