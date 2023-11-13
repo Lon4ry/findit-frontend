@@ -1,8 +1,8 @@
 'use client';
 
-import RegistrationScreen from '@/ui/screens/auth/registration/registration.screen';
 import { useSearchParams } from 'next/navigation';
 import { RegistrationSchema } from '@/ui/screens/auth/registration/registration.schema';
+import RegistrationScreen from '@/ui/screens/auth/registration/registration.screen';
 
 const RegistrationPage = () => {
   const searchParams = useSearchParams();

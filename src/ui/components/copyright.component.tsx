@@ -1,11 +1,13 @@
+import styles from './copyright.module.scss';
+import { ibmPlexMono } from '@/lib/fonts';
+
 export default function CopyrightComponent() {
   return (
-    <footer className={'fixed bottom-0 w-full'}>
-      <div className={'flex justify-center'}>
-        <h6 className={'p-3 text-black text-opacity-25 font-ibmPlexMono'}>
-          © Powered by Find IT &apos s team
-        </h6>
-      </div>
+    <footer className={styles.copyright}>
+      <h6 className={ibmPlexMono.className}>
+        {/* eslint-disable-next-line react/no-unescaped-entities */}© Powered
+        by Find IT's team
+      </h6>
     </footer>
   );
 }

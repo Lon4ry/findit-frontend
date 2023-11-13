@@ -1,9 +1,61 @@
-import LoginContent from './login-content';
+import { Fragment, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { Transition } from '@headlessui/react';
+import Link from 'next/link';
+import LoginForm from '@/ui/screens/auth/login/login-form';
+import { loginUrls } from '@/ui/screens/auth/login/login-urls';
+import LoginWith from '@/ui/screens/auth/login/login-with';
+import styles from './login.module.scss';
 
-export default function LoginScreen() {
+const LoginScreen = () => {
+  const [show, setShow] = useState(true);
+
+  const router = useRouter();
+  const [url, setUrl] = useState('');
+  const push = (href: string) => {
+    setUrl(href);
+    setShow(false);
+  };
+
   return (
-    <main className={'fixed w-full h-full'}>
-      <LoginContent />
-    </main>
+    <Transition
+      as={Fragment}
+      show={show}
+      appear={true}
+      enter="transition ease-in-out duration-[450ms]"
+      enterFrom={'opacity-0 backdrop-blur'}
+      enterTo={'opacity-100 filter-none'}
+      leave="transition ease-in-out duration-[450ms]"
+      leaveFrom={'opacity-100 filter-none'}
+      leaveTo={'opacity-0 backdrop-blur'}
+      afterLeave={() => router.push(url)}
+    >
+      <main className={styles.login}>
+        <div>
+          {loginUrls.map((u) => (
+            <Link key={u.id} href={u.href} />
+          ))}
+        </div>
+        <div>
+          <div>
+            <LoginWith push={push} />
+            <div>
+              <hr />
+              <span>или</span>
+            </div>
+            <LoginForm push={push} />
+          </div>
+          <div>
+            {/*<Image*/}
+            {/*  width={1024}*/}
+            {/*  height={1024}*/}
+            {/*  src={'/login-side-image.jpg'}*/}
+            {/*  alt={'Боковое изображение'}*/}
+            {/*/>*/}
+          </div>
+        </div>
+      </main>
+    </Transition>
   );
-}
+};
+export default LoginScreen;

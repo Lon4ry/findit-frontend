@@ -1,6 +1,7 @@
 'use client';
-import { Fragment, useState } from 'react';
+
 import styles from './radial-gradient-bg.module.scss';
+import { Fragment, useState } from 'react';
 import { Transition } from '@headlessui/react';
 
 export default function RadialGradientBg() {
@@ -24,7 +25,7 @@ export default function RadialGradientBg() {
       afterEnter={() => setShow(false)}
       afterLeave={() => setShow(true)}
     >
-      <div className={`fixed w-full h-full ${styles.bgRadial}`} />
+      <div className={styles.background} />
     </Transition>
   );
 }
