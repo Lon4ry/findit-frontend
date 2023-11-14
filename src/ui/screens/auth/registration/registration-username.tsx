@@ -4,14 +4,14 @@ import { Transition } from '@headlessui/react';
 import SplitTextInputComponent from '@/ui/components/input-components/split-text-input.component';
 import styles from './registration-input.module.scss';
 
-export default function RegistrationUsername({
+const RegistrationUsername = ({
   step,
   nextStep,
   error,
   register,
   isTouched,
   isSubmitting,
-}: RegistrationProps) {
+}: RegistrationProps) => {
   return (
     <Transition
       as={Fragment}
@@ -37,4 +37,5 @@ export default function RegistrationUsername({
       </div>
     </Transition>
   );
-}
+};
+export default RegistrationUsername;

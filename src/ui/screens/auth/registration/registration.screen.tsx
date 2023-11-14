@@ -14,11 +14,11 @@ import RegistrationWarning from './registration-warning';
 import RegistrationEmail from './registration-email';
 import styles from './registration.module.scss';
 
-export default function RegistrationScreen({
+const RegistrationScreen = ({
   defaultValues,
 }: {
   defaultValues?: RegistrationSchema;
-}) {
+}) => {
   const [show, setShow] = useState(true);
   const router = useRouter();
 
@@ -171,4 +171,5 @@ export default function RegistrationScreen({
       </main>
     </Transition>
   );
-}
+};
+export default RegistrationScreen;

@@ -3,13 +3,13 @@ import { Transition } from '@headlessui/react';
 import { ibmPlexMono } from '@/lib/fonts';
 import styles from './registration-warning.module.scss';
 
-type CreateProfileWarningProps = { text: string; step: number; where: number };
+type RegistrationWarningProps = { text: string; step: number; where: number };
 
-export default function RegistrationWarning({
+const RegistrationWarning = ({
   text,
   step,
   where,
-}: CreateProfileWarningProps) {
+}: RegistrationWarningProps) => {
   const [show, setShow] = useState(step === where);
   const opacity = {
     from: 'opacity-50',
@@ -35,4 +35,5 @@ export default function RegistrationWarning({
       </div>
     </Transition>
   );
-}
+};
+export default RegistrationWarning;

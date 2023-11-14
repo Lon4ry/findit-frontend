@@ -1,5 +1,3 @@
-'use client';
-
 import styles from './radial-gradient-bg.module.scss';
 import { Fragment, useState } from 'react';
 import { Transition } from '@headlessui/react';

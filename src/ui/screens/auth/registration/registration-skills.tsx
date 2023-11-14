@@ -5,7 +5,7 @@ import NumberInputComponent from '@/ui/components/input-components/number-input.
 import { FieldError, FieldErrorsImpl, Merge } from 'react-hook-form';
 import styles from './registration-input.module.scss';
 
-export default function RegistrationSkills({
+const RegistrationSkills = ({
   step,
   nextStep,
   register,
@@ -23,7 +23,7 @@ export default function RegistrationSkills({
       QA: number;
     }>
   >;
-}) {
+}) => {
   return (
     <Transition
       as={Fragment}
@@ -120,4 +120,5 @@ export default function RegistrationSkills({
       </div>
     </Transition>
   );
-}
+};
+export default RegistrationSkills;

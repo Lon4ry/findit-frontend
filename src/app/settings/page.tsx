@@ -1,5 +1,6 @@
 'use client';
 
-export default function SettingsPage() {
+const SettingsPage = () => {
   return <>Доработка...</>;
-}
+};
+export default SettingsPage;

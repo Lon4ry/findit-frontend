@@ -4,7 +4,7 @@ import { Fragment, useState } from 'react';
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/24/outline';
 import styles from './registration-input.module.scss';
 
-export default function RegistrationGender({
+const RegistrationGender = ({
   step,
   nextStep,
   setValue,
@@ -13,7 +13,7 @@ export default function RegistrationGender({
 }: Omit<RegistrationProps, 'error' | 'isTouched' | 'register'> & {
   setValue: (...args: any[]) => void;
   defaultValue?: string;
-}) {
+}) => {
   const genders = [
     { id: 'Male', value: 'Парень' },
     { id: 'Female', value: 'Девушка' },
@@ -95,4 +95,5 @@ export default function RegistrationGender({
       </div>
     </Transition>
   );
-}
+};
+export default RegistrationGender;

@@ -10,11 +10,15 @@
     width: 60%;
 
     > button {
-      @apply w-full bg-blue-600 rounded p-2 text-white;
+      @apply w-full rounded p-2 font-medium;
       @apply pointer-events-auto transition ease-in-out;
 
-      &:hover {
-        @apply bg-blue-700;
+      &:first-child {
+        @apply bg-blue-600 text-white;
+
+        &:hover {
+          @apply bg-blue-700;
+        }
       }
 
       &:last-child {

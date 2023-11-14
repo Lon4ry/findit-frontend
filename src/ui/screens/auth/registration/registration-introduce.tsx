@@ -3,7 +3,7 @@ import { Fragment } from 'react';
 import { RegistrationProps } from './registration-props.type';
 import styles from './registration-introduce.module.scss';
 
-export default function RegistrationIntroduce({
+const RegistrationIntroduce = ({
   step,
   nextStep,
   backButtonAction,
@@ -12,7 +12,7 @@ export default function RegistrationIntroduce({
   'error' | 'register' | 'isTouched' | 'isSubmitting'
 > & {
   backButtonAction?: () => void;
-}) {
+}) => {
   return (
     <Transition
       as={Fragment}
@@ -40,4 +40,5 @@ export default function RegistrationIntroduce({
       </div>
     </Transition>
   );
-}
+};
+export default RegistrationIntroduce;

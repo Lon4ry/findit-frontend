@@ -4,14 +4,14 @@ import SplitTextInputComponent from '@/ui/components/input-components/split-text
 import { Transition } from '@headlessui/react';
 import styles from './registration-input.module.scss';
 
-export default function RegistrationPassword({
+const RegistrationPassword = ({
   step,
   nextStep,
   error,
   register,
   isTouched,
   isSubmitting,
-}: RegistrationProps) {
+}: RegistrationProps) => {
   return (
     <Transition
       as={Fragment}
@@ -39,4 +39,5 @@ export default function RegistrationPassword({
       </div>
     </Transition>
   );
-}
+};
+export default RegistrationPassword;

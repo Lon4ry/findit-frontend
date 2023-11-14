@@ -4,14 +4,14 @@ import SplitTextInputComponent from '@/ui/components/input-components/split-text
 import { RegistrationProps } from './registration-props.type';
 import styles from './registration-input.module.scss';
 
-export default function RegistrationEmail({
+const RegistrationEmail = ({
   step,
   nextStep,
   error,
   register,
   isTouched,
   isSubmitting,
-}: RegistrationProps) {
+}: RegistrationProps) => {
   return (
     <Transition
       as={Fragment}
@@ -37,4 +37,5 @@ export default function RegistrationEmail({
       </div>
     </Transition>
   );
-}
+};
+export default RegistrationEmail;

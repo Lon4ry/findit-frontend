@@ -24,18 +24,22 @@
       @apply w-full flex flex-row-reverse justify-between gap-2;
 
       button {
-        @apply pointer-events-auto text-white bg-blue-500 px-4 py-3 rounded w-full font-medium;
+        @apply pointer-events-auto px-4 py-3 rounded w-full font-medium;
         @apply transition ease-in-out;
 
-        &:hover {
-          @apply bg-blue-600;
+        &:first-child {
+          @apply bg-blue-600 text-white;
+
+          &:hover {
+            @apply bg-blue-700;
+          }
         }
 
         &:last-child {
-          @apply bg-gray-200 text-gray-500;
+          @apply bg-gray-100 text-gray-500;
 
           &:hover {
-            @apply bg-gray-300;
+            @apply bg-gray-200;
           }
         }
       }
