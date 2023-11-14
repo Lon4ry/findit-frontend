@@ -1,21 +1,22 @@
-import { CreateProfileProps } from './create-profile-props.type';
-import { Fragment } from 'react';
 import { Transition } from '@headlessui/react';
-import SplitInputTextComponent from '@/ui/components/input-components/split-input-text.component';
+import { Fragment } from 'react';
+import SplitTextInputComponent from '@/ui/components/input-components/split-text-input.component';
+import { RegistrationProps } from './registration-props.type';
+import styles from './registration-input.module.scss';
 
-export default function CreateProfileUsername({
+export default function RegistrationEmail({
   step,
   nextStep,
   error,
   register,
   isTouched,
   isSubmitting,
-}: CreateProfileProps) {
+}: RegistrationProps) {
   return (
     <Transition
       as={Fragment}
       appear={true}
-      show={step === 1}
+      show={step === 3}
       enter="transition ease-in-out duration-[450ms] transform-gpu"
       enterFrom={'translate-x-[300%] blur'}
       enterTo={'translate-x-0 filter-none'}
@@ -23,15 +24,13 @@ export default function CreateProfileUsername({
       leaveFrom={'translate-x-0 filter-none'}
       leaveTo={'-translate-x-[300%] blur'}
     >
-      <div className={'flex flex-col gap-5 w-1/3'}>
-        <h2 className={'font-bold text-4xl px-5 text-center'}>
-          Давай определимся с публичным именем
-        </h2>
-        <SplitInputTextComponent
-          name={'user.username'}
-          isTouched={isTouched}
-          isSubmitting={isSubmitting}
+      <div className={styles.registrationTextInput}>
+        <h2>Укажи свою почту, чтобы мы смогли связаться с тобой</h2>
+        <SplitTextInputComponent
+          name={'user.email'}
           register={register}
+          isSubmitting={isSubmitting}
+          isTouched={isTouched}
           error={error}
           handleClick={nextStep}
         />

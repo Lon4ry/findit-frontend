@@ -1,4 +1,5 @@
 import { FieldError } from 'react-hook-form';
+import styles from './number-input.module.scss';
 
 type InputNumberComponentProps = {
   defaultValue?: number;
@@ -10,7 +11,7 @@ type InputNumberComponentProps = {
   register: (name: string, options?: any) => any;
 };
 
-export default function InputNumberComponent({
+export default function NumberInputComponent({
   defaultValue,
   label,
   min,
@@ -20,8 +21,8 @@ export default function InputNumberComponent({
   error,
 }: InputNumberComponentProps) {
   return (
-    <div className={'w-full flex flex-row gap-3 items-center justify-between'}>
-      {label ? <label className={'text-xl font-light'}>{label}</label> : null}
+    <div className={styles.numberInput}>
+      {label ? <label>{label}</label> : null}
       <input
         {...register(name, {
           setValueAs: (value: string) => Number(value),
@@ -29,7 +30,6 @@ export default function InputNumberComponent({
         name={name}
         defaultValue={defaultValue}
         type={'number'}
-        className={'border rounded border-gray-300 px-3 py-1.5 focus:outline-0'}
         min={min}
         max={max}
         aria-invalid={!!error}

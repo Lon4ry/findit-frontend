@@ -1,9 +1,9 @@
-import styles from './login-with-button.module.scss';
+import styles from './external-auth.module.scss';
 import Image from 'next/image';
 
 type LoginWithButtonProps = { src: string; alt: string; action: () => void };
 
-export default function LoginWithButton({
+export default function ExternalAuthButton({
   src,
   alt,
   action,

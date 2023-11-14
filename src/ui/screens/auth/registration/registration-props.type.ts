@@ -1,6 +1,6 @@
 import { FieldError } from 'react-hook-form';
 
-export type CreateProfileProps = {
+export type RegistrationProps = {
   step: number;
   nextStep: (...args: any[]) => void;
   register?: (...args: any[]) => any;

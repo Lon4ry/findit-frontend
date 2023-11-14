@@ -1,10 +1,11 @@
 import { Fragment, useState } from 'react';
 import { Transition } from '@headlessui/react';
 import { ibmPlexMono } from '@/lib/fonts';
+import styles from './registration-warning.module.scss';
 
 type CreateProfileWarningProps = { text: string; step: number; where: number };
 
-export default function CreateProfileWarning({
+export default function RegistrationWarning({
   text,
   step,
   where,
@@ -29,14 +30,8 @@ export default function CreateProfileWarning({
       afterEnter={() => setShow(false)}
       afterLeave={() => setShow(true)}
     >
-      <div className={'fixed bottom-16 w-full'}>
-        <div className={'flex justify-center'}>
-          <h6
-            className={`p-3 text-black text-center text-opacity-25 ${ibmPlexMono.className} font-normal`}
-          >
-            {text}
-          </h6>
-        </div>
+      <div className={styles.registrationWarning}>
+        <h6 className={ibmPlexMono.className}>{text}</h6>
       </div>
     </Transition>
   );

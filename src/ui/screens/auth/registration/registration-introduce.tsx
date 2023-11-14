@@ -1,13 +1,14 @@
 import { Transition } from '@headlessui/react';
 import { Fragment } from 'react';
-import { CreateProfileProps } from './create-profile-props.type';
+import { RegistrationProps } from './registration-props.type';
+import styles from './registration-introduce.module.scss';
 
-export default function CreateProfileIntroduce({
+export default function RegistrationIntroduce({
   step,
   nextStep,
   backButtonAction,
 }: Omit<
-  CreateProfileProps,
+  RegistrationProps,
   'error' | 'register' | 'isTouched' | 'isSubmitting'
 > & {
   backButtonAction?: () => void;
@@ -24,26 +25,14 @@ export default function CreateProfileIntroduce({
       leaveFrom={'translate-x-0 filter-none'}
       leaveTo={'-translate-x-[300%] blur'}
     >
-      <div className={'flex flex-col gap-5'}>
-        <h2 className={'font-bold text-4xl'}>Давай познакомимся</h2>
-        <div className={'flex flex-col flex-nowrap gap-3'}>
-          <button
-            type={'button'}
-            className={
-              'w-full bg-blue-600 rounded p-2 text-white transition ease-in-out hover:bg-blue-700'
-            }
-            onClick={nextStep}
-          >
+      <div className={styles.registrationIntroduce}>
+        <h2>Давай познакомимся</h2>
+        <div>
+          <button type={'button'} onClick={nextStep}>
             Продолжить
           </button>
           {backButtonAction ? (
-            <button
-              type={'button'}
-              className={
-                'rounded p-2 text-gray-500 transition bg-gray-100 ease-in-out hover:bg-gray-200'
-              }
-              onClick={() => backButtonAction()}
-            >
+            <button type={'button'} onClick={() => backButtonAction()}>
               Назад
             </button>
           ) : null}

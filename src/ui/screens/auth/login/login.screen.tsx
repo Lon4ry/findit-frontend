@@ -30,7 +30,7 @@ const LoginScreen = () => {
       leaveTo={'opacity-0 backdrop-blur'}
       afterLeave={() => router.push(url)}
     >
-      <main className={styles.login}>
+      <main className={styles.loginScreen}>
         <div>
           {loginUrls.map((u) => (
             <Link key={u.id} href={u.href} />
@@ -45,14 +45,7 @@ const LoginScreen = () => {
             </div>
             <LoginForm push={push} />
           </div>
-          <div>
-            {/*<Image*/}
-            {/*  width={1024}*/}
-            {/*  height={1024}*/}
-            {/*  src={'/login-side-image.jpg'}*/}
-            {/*  alt={'Боковое изображение'}*/}
-            {/*/>*/}
-          </div>
+          <div />
         </div>
       </main>
     </Transition>

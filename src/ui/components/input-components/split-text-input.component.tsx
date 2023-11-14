@@ -2,6 +2,7 @@ import ArrowIconComponent from '../svg/helpful-icons/arrow-icon.component';
 import { ButtonProps } from './button-props.type';
 import { FieldError } from 'react-hook-form';
 import { HTMLInputTypeAttribute } from 'react';
+import styles from './split-text-input.module.scss';
 
 type SplitInputComponentProps = {
   startText?: string;
@@ -14,7 +15,7 @@ type SplitInputComponentProps = {
   isSubmitting?: boolean;
 } & ButtonProps;
 
-export default function SplitInputTextComponent({
+export default function SplitTextInputComponent({
   startText,
   handleClick,
   error,
@@ -26,15 +27,11 @@ export default function SplitInputTextComponent({
   isSubmitting,
 }: SplitInputComponentProps) {
   return (
-    <>
-      <div className={'flex flex-row flex-nowrap mx-5'}>
-        <div className={'flex flex-row flex-nowrap w-full'}>
+    <div className={styles.splitTextInput}>
+      <div>
+        <div>
           {startText ? (
-            <span
-              className={`bg-gray-100 border border-r-0 border-gray-300 rounded-l p-3 ${
-                error ? 'border-red-600' : 'border-gray-300'
-              }`}
-            >
+            <span className={error ? 'border-red-600' : 'border-gray-300'}>
               {startText}
             </span>
           ) : null}
@@ -43,9 +40,10 @@ export default function SplitInputTextComponent({
             placeholder={''}
             name={name}
             type={type ? type : 'text'}
-            className={`w-full border border-r-0 p-3 focus:outline-0 ${
-              startText ? 'border-l-0' : 'rounded-l'
-            } ${error ? 'border-red-600' : 'border-gray-300'}`}
+            className={`
+              ${startText ? 'border-l-0' : 'rounded-l'} ${
+                error ? 'border-red-600' : 'border-gray-300'
+              }`}
             aria-invalid={!!error}
             required={true}
             formNoValidate={true}
@@ -54,19 +52,13 @@ export default function SplitInputTextComponent({
         <button
           type={isLast ? 'submit' : 'button'}
           disabled={!isTouched || !!error || isSubmitting}
-          className={`bg-blue-600 rounded-r px-3 hover:bg-blue-700 text-white transition ease-in-out disabled:bg-gray-500 ${
-            error ? 'border-red-600' : ''
-          }`}
+          className={error ? 'border-red-600' : ''}
           onClick={handleClick}
         >
           <ArrowIconComponent />
         </button>
       </div>
-      <div className={'mx-5 absolute inset-y-full'}>
-        {error ? (
-          <span className={'text-red-500 bg-transparent'}>{error.message}</span>
-        ) : null}
-      </div>
-    </>
+      <div>{error ? <span>{error.message}</span> : null}</div>
+    </div>
   );
 }

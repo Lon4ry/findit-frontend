@@ -1,17 +1,18 @@
-import CreateProfileIntroduce from './create-profile/create-profile-introduce';
+import RegistrationIntroduce from './registration-introduce';
 import { Fragment, useState } from 'react';
 import { Transition } from '@headlessui/react';
 import { useRouter } from 'next/navigation';
-import CreateProfileUsername from './create-profile/create-profile-username';
-import CreateProfileName from './create-profile/create-profile-name';
-import CreateProfileSkills from './create-profile/create-profile-skills';
-import CreateProfileGender from './create-profile/create-profile-gender';
+import RegistrationUsername from './registration-username';
+import RegistrationName from './registration-name';
+import RegistrationSkills from './registration-skills';
+import RegistrationGender from './registration-gender';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { RegistrationSchema, registrationSchema } from './registration.schema';
-import CreateProfilePassword from './create-profile/create-profile-password';
-import CreateProfileWarning from './create-profile/create-profile-warning';
-import CreateProfileEmail from './create-profile/create-profile-email';
+import RegistrationPassword from './registration-password';
+import RegistrationWarning from './registration-warning';
+import RegistrationEmail from './registration-email';
+import styles from './registration.module.scss';
 
 export default function RegistrationScreen({
   defaultValues,
@@ -38,23 +39,20 @@ export default function RegistrationScreen({
   const onSubmit: SubmitHandler<RegistrationSchema> = async (
     data: RegistrationSchema,
   ): Promise<void> => {
-    console.log('Submitting...', data);
     const [firstName, lastName] = data.profile.name.split(' ');
     const parsedData = {
       ...data,
       name: { firstName: firstName, lastName: lastName },
     };
 
-    const response = await fetch('/auth/registration', {
+    const response = await fetch('/api/auth/registration', {
       headers: {
         'Content-Type': 'application/json',
       },
       method: 'POST',
       body: JSON.stringify(parsedData),
     });
-    console.log(response.status);
-    console.log(await response.json());
-    if (response.status === 201) router.replace('/auth/who-am-i');
+    if (response.status === 201) router.replace('/dashboard');
   };
 
   const defaultRegistrationValues = getValues();
@@ -72,17 +70,14 @@ export default function RegistrationScreen({
       leaveTo={'opacity-0 backdrop-blur'}
       afterLeave={() => router.replace('/auth/login')}
     >
-      <div className={'fixed w-full h-full bg-white'}>
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className={'w-full h-full flex justify-center items-center'}
-        >
-          <CreateProfileIntroduce
+      <main className={styles.registrationScreen}>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <RegistrationIntroduce
             step={step}
             nextStep={() => setStep(1)}
             backButtonAction={() => setShow(false)}
           />
-          <CreateProfileUsername
+          <RegistrationUsername
             isSubmitting={isSubmitting}
             register={register}
             isTouched={
@@ -96,7 +91,7 @@ export default function RegistrationScreen({
             nextStep={() => setStep(2)}
           />
 
-          <CreateProfileName
+          <RegistrationName
             isSubmitting={isSubmitting}
             register={register}
             isTouched={
@@ -109,7 +104,7 @@ export default function RegistrationScreen({
             step={step}
             nextStep={() => setStep(3)}
           />
-          <CreateProfileEmail
+          <RegistrationEmail
             isSubmitting={isSubmitting}
             register={register}
             isTouched={
@@ -122,14 +117,14 @@ export default function RegistrationScreen({
             step={step}
             nextStep={() => setStep(4)}
           />
-          <CreateProfileSkills
+          <RegistrationSkills
             isSubmitting={isSubmitting}
             register={register}
             errors={errors.profile ? errors.profile.skills : null}
             step={step}
             nextStep={() => setStep(5)}
           />
-          <CreateProfileGender
+          <RegistrationGender
             defaultValue={
               defaultRegistrationValues.profile
                 ? defaultRegistrationValues.profile.gender
@@ -140,7 +135,7 @@ export default function RegistrationScreen({
             step={step}
             nextStep={() => setStep(6)}
           />
-          <CreateProfilePassword
+          <RegistrationPassword
             register={register}
             isSubmitting={isSubmitting}
             isTouched={touchedFields.user ? touchedFields.user.password : false}
@@ -149,31 +144,31 @@ export default function RegistrationScreen({
             nextStep={() => setStep(-1)}
           />
         </form>
-        <CreateProfileWarning
+        <RegistrationWarning
           text={'Позже вы сможете отредактировать свой профиль'}
           step={step}
           where={0}
         />
-        <CreateProfileWarning
+        <RegistrationWarning
           text={'Имя пользователя не будет привязано к регистру'}
           step={step}
           where={1}
         />
-        <CreateProfileWarning
+        <RegistrationWarning
           text={
             'Используйте настоящую почту, на него придет письмо с подтверждением'
           }
           step={step}
           where={3}
         />
-        <CreateProfileWarning
+        <RegistrationWarning
           text={
             'Придумайте сложный пароль, во избежании попытки украсть ваш аккаунт'
           }
           step={step}
           where={6}
         />
-      </div>
+      </main>
     </Transition>
   );
 }

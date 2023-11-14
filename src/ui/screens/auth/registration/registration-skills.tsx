@@ -1,16 +1,17 @@
-import { CreateProfileProps } from './create-profile-props.type';
+import { RegistrationProps } from './registration-props.type';
 import { Fragment } from 'react';
 import { Transition } from '@headlessui/react';
-import InputNumberComponent from '@/ui/components/input-components/input-number.component';
+import NumberInputComponent from '@/ui/components/input-components/number-input.component';
 import { FieldError, FieldErrorsImpl, Merge } from 'react-hook-form';
+import styles from './registration-input.module.scss';
 
-export default function CreateProfileSkills({
+export default function RegistrationSkills({
   step,
   nextStep,
   register,
   errors,
   isSubmitting,
-}: Omit<CreateProfileProps, 'error' | 'isTouched'> & {
+}: Omit<RegistrationProps, 'error' | 'isTouched'> & {
   errors?: Merge<
     FieldError,
     FieldErrorsImpl<{
@@ -35,12 +36,10 @@ export default function CreateProfileSkills({
       leaveFrom={'translate-x-0 filter-none'}
       leaveTo={'-translate-x-[300%] blur'}
     >
-      <div className={'flex flex-col gap-10 w-1/3 items-center'}>
-        <h2 className={'font-bold text-4xl px-5 text-center'}>
-          Что насчет твоих навыков?
-        </h2>
-        <div className={'flex flex-col items-center gap-3 w-1/2'}>
-          <InputNumberComponent
+      <div className={styles.registrationNumberInput}>
+        <h2>Что насчет твоих навыков?</h2>
+        <div>
+          <NumberInputComponent
             defaultValue={0}
             label={'Project Management:'}
             min={0}
@@ -55,7 +54,7 @@ export default function CreateProfileSkills({
                 : null
             }
           />
-          <InputNumberComponent
+          <NumberInputComponent
             defaultValue={0}
             label={'Frontend:'}
             min={0}
@@ -66,7 +65,7 @@ export default function CreateProfileSkills({
               errors ? ('Frontend' in errors ? errors.Frontend : null) : null
             }
           />
-          <InputNumberComponent
+          <NumberInputComponent
             defaultValue={0}
             label={'Backend:'}
             min={0}
@@ -77,7 +76,7 @@ export default function CreateProfileSkills({
               errors ? ('Backend' in errors ? errors.Backend : null) : null
             }
           />
-          <InputNumberComponent
+          <NumberInputComponent
             defaultValue={0}
             label={'Machine Learning:'}
             min={0}
@@ -92,7 +91,7 @@ export default function CreateProfileSkills({
                 : null
             }
           />
-          <InputNumberComponent
+          <NumberInputComponent
             defaultValue={0}
             label={'DevOps:'}
             min={0}
@@ -101,7 +100,7 @@ export default function CreateProfileSkills({
             register={register}
             error={errors ? ('DevOps' in errors ? errors.DevOps : null) : null}
           />
-          <InputNumberComponent
+          <NumberInputComponent
             defaultValue={0}
             label={'QA:'}
             min={0}
@@ -114,9 +113,6 @@ export default function CreateProfileSkills({
         <button
           type={'button'}
           disabled={!!errors || isSubmitting}
-          className={
-            'w-1/2 bg-blue-600 rounded p-2 text-white transition ease-in-out hover:bg-blue-700'
-          }
           onClick={nextStep}
         >
           Продолжить
