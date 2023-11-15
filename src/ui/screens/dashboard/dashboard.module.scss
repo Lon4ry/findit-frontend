@@ -1,0 +1,30 @@
+.dashboardScreen {
+  @apply bg-gray-100 grid gap-5 p-5 pb-10;
+  width: 100%-5%;
+  grid-template-areas:
+      'Notices Notices Notices Responses Responses Responses Responses'
+      'Notices Notices Notices Responses Responses Responses Responses'
+      'Projects Projects Projects Responses Responses Responses Responses'
+      'Projects Projects Projects Suggestions Suggestions Suggestions Suggestions'
+      'Projects Projects Projects Suggestions Suggestions Suggestions Suggestions';
+
+  > div {
+    @apply bg-white w-full h-full border border-gray-300 rounded shadow-xl;
+
+    &:nth-child(1) {
+      grid-area: Notices;
+    }
+
+    &:nth-child(2) {
+      grid-area: Responses;
+    }
+
+    &:nth-child(3) {
+      grid-area: Projects;
+    }
+
+    &:nth-child(4) {
+      grid-area: Suggestions;
+    }
+  }
+}

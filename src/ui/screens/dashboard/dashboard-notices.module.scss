@@ -1,0 +1,10 @@
+.dashboardNotices {
+  @apply flex flex-col p-5;
+  > h2 {
+    @apply px-2 py-1 font-medium;
+  }
+
+  > ol {
+    @apply flex flex-col h-full bg-gray-100 rounded;
+  }
+}

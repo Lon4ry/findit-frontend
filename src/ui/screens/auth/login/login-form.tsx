@@ -1,17 +1,19 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { LoginSchema } from '@/ui/screens/auth/login/login.schema';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { registrationSchema } from '@/ui/screens/auth/registration/registration.schema';
+import { loginSchema, LoginSchema } from '@/ui/screens/auth/login/login.schema';
 import { ibmPlexMono } from '@/lib/fonts';
 import styles from './login-form.module.scss';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 const LoginForm = ({ push }: { push: (...args: any[]) => void }) => {
   const { handleSubmit, register } = useForm<LoginSchema>({
     mode: 'onSubmit',
-    resolver: zodResolver(registrationSchema),
+    resolver: zodResolver(loginSchema),
   });
-  const onSubmit: SubmitHandler<LoginSchema> = async (data: LoginSchema) => {
-    const response = await fetch('api/auth/login', {
+  const onSubmit: SubmitHandler<LoginSchema> = async (
+    data: LoginSchema,
+  ): Promise<void> => {
+    console.log('Work');
+    const response = await fetch(`/api/auth/login`, {
       headers: {
         'Content-Type': 'application/json',
       },

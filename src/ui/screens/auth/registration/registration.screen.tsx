@@ -45,7 +45,7 @@ const RegistrationScreen = ({
       name: { firstName: firstName, lastName: lastName },
     };
 
-    const response = await fetch('/api/auth/registration', {
+    const response = await fetch(`/api/auth/registration`, {
       headers: {
         'Content-Type': 'application/json',
       },
