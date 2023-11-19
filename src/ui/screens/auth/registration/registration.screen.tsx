@@ -39,7 +39,7 @@ const RegistrationScreen = ({
   const onSubmit: SubmitHandler<RegistrationSchema> = async (
     data: RegistrationSchema,
   ): Promise<void> => {
-    const [firstName, lastName] = data.profile.name.split(' ');
+    const [firstName, lastName] = data.name.split(' ');
     const parsedData = {
       ...data,
       name: { firstName: firstName, lastName: lastName },
@@ -81,55 +81,37 @@ const RegistrationScreen = ({
             isSubmitting={isSubmitting}
             register={register}
             isTouched={
-              (touchedFields.user ? touchedFields.user.username : false) ||
-              (defaultRegistrationValues.user
-                ? !!defaultRegistrationValues.user.username
-                : false)
+              touchedFields.username || !!defaultRegistrationValues.username
             }
-            error={errors.user ? errors.user.username : null}
+            error={errors.username}
             step={step}
             nextStep={() => setStep(2)}
           />
-
           <RegistrationName
             isSubmitting={isSubmitting}
             register={register}
-            isTouched={
-              (touchedFields.profile ? touchedFields.profile.name : false) ||
-              (defaultRegistrationValues.profile
-                ? !!defaultRegistrationValues.profile.name
-                : false)
-            }
-            error={errors.profile ? errors.profile.name : null}
+            isTouched={touchedFields.name || !!defaultRegistrationValues.name}
+            error={errors.name}
             step={step}
             nextStep={() => setStep(3)}
           />
           <RegistrationEmail
             isSubmitting={isSubmitting}
             register={register}
-            isTouched={
-              (touchedFields.user ? touchedFields.user.email : false) ||
-              (defaultRegistrationValues.user
-                ? !!defaultRegistrationValues.user.email
-                : false)
-            }
-            error={errors.user ? errors.user.email : null}
+            isTouched={touchedFields.email || !!defaultRegistrationValues.email}
+            error={errors.email}
             step={step}
             nextStep={() => setStep(4)}
           />
           <RegistrationSkills
             isSubmitting={isSubmitting}
             register={register}
-            errors={errors.profile ? errors.profile.skills : null}
+            errors={errors.skills}
             step={step}
             nextStep={() => setStep(5)}
           />
           <RegistrationGender
-            defaultValue={
-              defaultRegistrationValues.profile
-                ? defaultRegistrationValues.profile.gender
-                : ''
-            }
+            defaultValue={defaultRegistrationValues.gender}
             setValue={setValue}
             isSubmitting={isSubmitting}
             step={step}
@@ -138,14 +120,14 @@ const RegistrationScreen = ({
           <RegistrationPassword
             register={register}
             isSubmitting={isSubmitting}
-            isTouched={touchedFields.user ? touchedFields.user.password : false}
-            error={errors.user ? errors.user.password : null}
+            isTouched={touchedFields.password}
+            error={errors.password}
             step={step}
             nextStep={() => setStep(-1)}
           />
         </form>
         <RegistrationWarning
-          text={'Позже вы сможете отредактировать свой профиль'}
+          text={'Позже ты сможешь отредактировать свой профиль'}
           step={step}
           where={0}
         />
@@ -156,14 +138,14 @@ const RegistrationScreen = ({
         />
         <RegistrationWarning
           text={
-            'Используйте настоящую почту, на него придет письмо с подтверждением'
+            'Используй настоящую почту, на неё придет письмо с подтверждением'
           }
           step={step}
           where={3}
         />
         <RegistrationWarning
           text={
-            'Придумайте сложный пароль, во избежании попытки украсть ваш аккаунт'
+            'Придумай сложный пароль, во избежании попытки украсть твой аккаунт'
           }
           step={step}
           where={6}

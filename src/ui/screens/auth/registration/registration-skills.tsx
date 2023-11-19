@@ -44,7 +44,7 @@ const RegistrationSkills = ({
             label={'Project Management:'}
             min={0}
             max={10}
-            name={'profile.skills.ProjectManagement'}
+            name={'skills.ProjectManagement'}
             register={register}
             error={
               errors
@@ -59,7 +59,7 @@ const RegistrationSkills = ({
             label={'Frontend:'}
             min={0}
             max={10}
-            name={'profile.skills.Frontend'}
+            name={'skills.Frontend'}
             register={register}
             error={
               errors ? ('Frontend' in errors ? errors.Frontend : null) : null
@@ -70,7 +70,7 @@ const RegistrationSkills = ({
             label={'Backend:'}
             min={0}
             max={10}
-            name={'profile.skills.Backend'}
+            name={'skills.Backend'}
             register={register}
             error={
               errors ? ('Backend' in errors ? errors.Backend : null) : null
@@ -81,7 +81,7 @@ const RegistrationSkills = ({
             label={'Machine Learning:'}
             min={0}
             max={10}
-            name={'profile.skills.MachineLearning'}
+            name={'skills.MachineLearning'}
             register={register}
             error={
               errors
@@ -96,7 +96,7 @@ const RegistrationSkills = ({
             label={'DevOps:'}
             min={0}
             max={10}
-            name={'profile.skills.DevOps'}
+            name={'skills.DevOps'}
             register={register}
             error={errors ? ('DevOps' in errors ? errors.DevOps : null) : null}
           />
@@ -105,7 +105,7 @@ const RegistrationSkills = ({
             label={'QA:'}
             min={0}
             max={10}
-            name={'profile.skills.QA'}
+            name={'skills.QA'}
             register={register}
             error={errors ? ('QA' in errors ? errors.QA : null) : null}
           />

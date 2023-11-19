@@ -8,12 +8,10 @@ const RegistrationPage = () => {
   const searchParams = useSearchParams();
   const data = JSON.parse(searchParams.get('data'));
 
-  if (data && data.profile) {
-    if (data.profile.name)
-      data.profile.name = Object.values(data.profile.name).join(' ');
-    if (data.profile.gender)
-      data.profile.gender =
-        data.profile.gender[0].toUpperCase() + data.profile.gender.slice(1);
+  if (data) {
+    if (data.name) data.name = Object.values(data.name).join(' ');
+    if (data.gender)
+      data.gender = data.gender[0].toUpperCase() + data.gender.slice(1);
   }
 
   const parsedData: RegistrationSchema = data;

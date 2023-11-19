@@ -27,7 +27,7 @@ const RegistrationGender = ({
         },
   );
 
-  setValue('profile.gender', selectedGender.id);
+  setValue('gender', selectedGender.id);
 
   return (
     <Transition

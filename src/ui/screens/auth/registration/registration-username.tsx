@@ -27,7 +27,7 @@ const RegistrationUsername = ({
       <div className={styles.registrationTextInput}>
         <h2>Давай определимся с публичным именем</h2>
         <SplitTextInputComponent
-          name={'user.username'}
+          name={'username'}
           isTouched={isTouched}
           isSubmitting={isSubmitting}
           register={register}

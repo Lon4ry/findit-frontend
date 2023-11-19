@@ -28,7 +28,7 @@ const RegistrationPassword = ({
         <h2>И последнее... твой пароль</h2>
         <SplitTextInputComponent
           isLast={true}
-          name={'user.password'}
+          name={'password'}
           type={'password'}
           isTouched={isTouched}
           isSubmitting={isSubmitting}

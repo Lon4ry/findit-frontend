@@ -27,7 +27,7 @@ const RegistrationEmail = ({
       <div className={styles.registrationTextInput}>
         <h2>Укажи свою почту, чтобы мы смогли связаться с тобой</h2>
         <SplitTextInputComponent
-          name={'user.email'}
+          name={'email'}
           register={register}
           isSubmitting={isSubmitting}
           isTouched={isTouched}
