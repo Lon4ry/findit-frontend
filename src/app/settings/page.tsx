@@ -1,6 +1,4 @@
-'use client';
-
-const SettingsPage = () => {
+const SettingsPage = async () => {
   return <>Доработка...</>;
 };
 export default SettingsPage;

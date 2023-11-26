@@ -1,7 +1,7 @@
 import RegistrationIntroduce from './registration-introduce';
 import { Fragment, useState } from 'react';
 import { Transition } from '@headlessui/react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import RegistrationUsername from './registration-username';
 import RegistrationName from './registration-name';
 import RegistrationSkills from './registration-skills';
@@ -14,11 +14,18 @@ import RegistrationWarning from './registration-warning';
 import RegistrationEmail from './registration-email';
 import styles from './registration.module.scss';
 
-const RegistrationScreen = ({
-  defaultValues,
-}: {
-  defaultValues?: RegistrationSchema;
-}) => {
+const RegistrationScreen = () => {
+  const searchParams = useSearchParams();
+  const data = JSON.parse(searchParams.get('data'));
+
+  if (data) {
+    if (data.name) data.name = Object.values(data.name).join(' ');
+    if (data.gender)
+      data.gender = data.gender[0].toUpperCase() + data.gender.slice(1);
+  }
+
+  const defaultValues: RegistrationSchema = data;
+
   const [show, setShow] = useState(true);
   const router = useRouter();
 
@@ -73,7 +80,7 @@ const RegistrationScreen = ({
       <main className={styles.registrationScreen}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <RegistrationIntroduce
-            step={step}
+            show={step === 0}
             nextStep={() => setStep(1)}
             backButtonAction={() => setShow(false)}
           />
@@ -84,7 +91,7 @@ const RegistrationScreen = ({
               touchedFields.username || !!defaultRegistrationValues.username
             }
             error={errors.username}
-            step={step}
+            show={step === 1}
             nextStep={() => setStep(2)}
           />
           <RegistrationName
@@ -92,7 +99,7 @@ const RegistrationScreen = ({
             register={register}
             isTouched={touchedFields.name || !!defaultRegistrationValues.name}
             error={errors.name}
-            step={step}
+            show={step === 2}
             nextStep={() => setStep(3)}
           />
           <RegistrationEmail
@@ -100,21 +107,21 @@ const RegistrationScreen = ({
             register={register}
             isTouched={touchedFields.email || !!defaultRegistrationValues.email}
             error={errors.email}
-            step={step}
+            show={step === 3}
             nextStep={() => setStep(4)}
           />
           <RegistrationSkills
             isSubmitting={isSubmitting}
             register={register}
             errors={errors.skills}
-            step={step}
+            show={step === 4}
             nextStep={() => setStep(5)}
           />
           <RegistrationGender
             defaultValue={defaultRegistrationValues.gender}
             setValue={setValue}
             isSubmitting={isSubmitting}
-            step={step}
+            show={step === 5}
             nextStep={() => setStep(6)}
           />
           <RegistrationPassword
@@ -122,7 +129,7 @@ const RegistrationScreen = ({
             isSubmitting={isSubmitting}
             isTouched={touchedFields.password}
             error={errors.password}
-            step={step}
+            show={step === 6}
             nextStep={() => setStep(-1)}
           />
         </form>

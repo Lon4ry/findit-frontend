@@ -1,7 +1,7 @@
 import { FieldError } from 'react-hook-form';
 
 export type RegistrationProps = {
-  step: number;
+  show: boolean;
   nextStep: (...args: any[]) => void;
   register?: (...args: any[]) => any;
   error?: FieldError;

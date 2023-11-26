@@ -5,7 +5,7 @@ import SplitTextInputComponent from '@/ui/components/input-components/split-text
 import styles from './registration-input.module.scss';
 
 const RegistrationUsername = ({
-  step,
+  show,
   nextStep,
   error,
   register,
@@ -16,7 +16,7 @@ const RegistrationUsername = ({
     <Transition
       as={Fragment}
       appear={true}
-      show={step === 1}
+      show={show}
       enter="transition ease-in-out duration-[450ms] transform-gpu"
       enterFrom={'translate-x-[300%] blur'}
       enterTo={'translate-x-0 filter-none'}

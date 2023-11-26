@@ -2,15 +2,15 @@
 // import useSWR from 'swr';
 // import { ReceivedUser } from '../../lib/types/user.type';
 //
-// export default function useUser(): {
+// export default function use(): {
 //   payload: ReceivedUser;
 //   isLoading: boolean;
 //   isError: boolean;
 // } {
-//   const { data, error, isLoading } = useSWR(`/auth/who-am-i`, fetcher);
+//   const { data, error, isLoading } = useSWR(`/api/auth`, fetcher);
 //   console.log(data);
 //   return {
-//     payload: data ? data.user : null,
+//     payload: data,
 //     isLoading,
 //     isError: error,
 //   };

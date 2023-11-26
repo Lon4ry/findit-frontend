@@ -5,7 +5,7 @@ import { Transition } from '@headlessui/react';
 import styles from './registration-input.module.scss';
 
 const RegistrationPassword = ({
-  step,
+  show,
   nextStep,
   error,
   register,
@@ -16,7 +16,7 @@ const RegistrationPassword = ({
     <Transition
       as={Fragment}
       appear={true}
-      show={step === 6}
+      show={show}
       enter="transition ease-in-out duration-[450ms] transform-gpu"
       enterFrom={'translate-x-[300%] blur'}
       enterTo={'translate-x-0 filter-none'}

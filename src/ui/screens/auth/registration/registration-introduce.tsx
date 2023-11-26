@@ -4,7 +4,7 @@ import { RegistrationProps } from './registration-props.type';
 import styles from './registration-introduce.module.scss';
 
 const RegistrationIntroduce = ({
-  step,
+  show,
   nextStep,
   backButtonAction,
 }: Omit<
@@ -17,7 +17,7 @@ const RegistrationIntroduce = ({
     <Transition
       as={Fragment}
       appear={true}
-      show={step === 0}
+      show={show}
       enter="transition ease-in-out duration-[450ms] transform-gpu"
       enterFrom={'translate-x-[300%] blur'}
       enterTo={'translate-x-0 filter-none'}

@@ -5,7 +5,7 @@ import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/24/outline';
 import styles from './registration-input.module.scss';
 
 const RegistrationGender = ({
-  step,
+  show,
   nextStep,
   setValue,
   isSubmitting,
@@ -33,7 +33,7 @@ const RegistrationGender = ({
     <Transition
       as={Fragment}
       appear={true}
-      show={step === 5}
+      show={show}
       enter="transition ease-in-out duration-[450ms] transform-gpu"
       enterFrom={'translate-x-[300%] blur'}
       enterTo={'translate-x-0 filter-none'}
@@ -66,8 +66,8 @@ const RegistrationGender = ({
                     selected
                       ? 'bg-white cursor-default'
                       : active
-                      ? 'bg-amber-50 cursor-pointer'
-                      : 'bg-white'
+                        ? 'bg-amber-50 cursor-pointer'
+                        : 'bg-white'
                   }
                 >
                   {({ selected }) => (

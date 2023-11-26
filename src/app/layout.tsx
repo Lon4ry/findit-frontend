@@ -1,5 +1,5 @@
 import './globals.scss';
-import React from 'react';
+import React, { Suspense } from 'react';
 import CopyrightComponent from '@/ui/components/copyright.component';
 import { Metadata } from 'next';
 import { inter } from '@/lib/fonts';
@@ -13,7 +13,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="ru">
       <body className={`${inter.className}`}>
-        {children}
+        <Suspense>{children}</Suspense>
         <CopyrightComponent />
       </body>
     </html>

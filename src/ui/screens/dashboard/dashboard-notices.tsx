@@ -1,20 +1,25 @@
-import styles from './dashboard-notices.module.scss';
-
-// const createQuery = (relations: Record<string, boolean>) => {
-//   let query: string = '?';
-//   for (const key in relations) {
-//     const value: boolean = relations[key];
-//     query += `${key}=${value}&`;
-//   }
-//   query = query.slice(0, query.length - 1);
-//   return query;
-// };
+import styles from './dashboard-content.module.scss';
+import useSWR from 'swr';
+import fetcher from '@/lib/fetcher';
+import { Notice } from '@/lib/types/notice.type';
+import DashboardNotice from '@/ui/screens/dashboard/dashboard-notice';
 
 const DashboardNotices = () => {
+  const { data: json, isLoading } = useSWR('/api/dashboard/notices', fetcher);
+
   return (
     <div className={styles.dashboardNotices}>
       <h2>Уведомления</h2>
-      <ol></ol>
+      <ol>
+        {isLoading
+          ? null
+          : json.length !== 0 &&
+            json.data.map((notice: Notice) => (
+              <li key={notice.id}>
+                <DashboardNotice {...notice} />
+              </li>
+            ))}
+      </ol>
     </div>
   );
 };

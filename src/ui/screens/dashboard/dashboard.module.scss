@@ -9,7 +9,7 @@
       'Projects Projects Projects Suggestions Suggestions Suggestions Suggestions';
 
   > div {
-    @apply bg-white w-full h-full border border-gray-300 rounded shadow-xl;
+    @apply bg-white border border-gray-300 rounded shadow-xl;
 
     &:nth-child(1) {
       grid-area: Notices;

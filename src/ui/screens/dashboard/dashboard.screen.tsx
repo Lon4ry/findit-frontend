@@ -1,30 +1,34 @@
 import styles from './dashboard.module.scss';
 import DashboardNotices from '@/ui/screens/dashboard/dashboard-notices';
-import DashboardResponses from '@/ui/screens/dashboard/dashboard-responses';
+import DashboardResponsesOffers from '@/ui/screens/dashboard/dashboard-responses-offers';
 import DashboardProjects from '@/ui/screens/dashboard/dashboard-projects';
-import DashboardSuggestions from '@/ui/screens/dashboard/dashboard-suggestions';
+import DashboardSubscription from '@/ui/screens/dashboard/dashboard-subscription';
 import { useEffect } from 'react';
-import { io } from 'socket.io-client';
+import { SocketManager } from '@/lib/socket-manager';
+import { useRouter } from 'next/navigation';
 
 const DashboardScreen = () => {
+  const router = useRouter();
+  const socket = SocketManager.socket('/auth');
   useEffect(() => {
-    const authSocket = io('http://localhost:3210', { withCredentials: true });
+    socket.connect();
 
-    authSocket.on('connect', () => {
-      console.log('Connected');
+    socket.on('connect_error', (err) => {
+      console.log(err);
+      if (err.message === 'Unauthorized') router.replace('/auth/login');
     });
 
     return () => {
-      authSocket.disconnect();
+      socket.disconnect();
     };
-  }, []);
+  }, [socket, router]);
 
   return (
     <main className={styles.dashboardScreen}>
       <DashboardNotices />
-      <DashboardResponses />
+      <DashboardResponsesOffers />
       <DashboardProjects />
-      <DashboardSuggestions />
+      <DashboardSubscription />
     </main>
   );
 };
