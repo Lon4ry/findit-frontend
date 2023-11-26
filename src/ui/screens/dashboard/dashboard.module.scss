@@ -1,5 +1,6 @@
+//TODO: Adaptive
 .dashboardScreen {
-  @apply bg-gray-100 grid gap-5 p-5 pb-10;
+  @apply bg-gray-50 grid gap-5 p-5 pb-10;
   width: 100%-5%;
   grid-template-areas:
       'Notices Notices Notices Responses Responses Responses Responses'
@@ -7,9 +8,11 @@
       'Projects Projects Projects Responses Responses Responses Responses'
       'Projects Projects Projects Suggestions Suggestions Suggestions Suggestions'
       'Projects Projects Projects Suggestions Suggestions Suggestions Suggestions';
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 
   > div {
-    @apply bg-white border border-gray-300 rounded shadow-xl;
+    @apply bg-white border rounded shadow-xl;
 
     &:nth-child(1) {
       grid-area: Notices;
