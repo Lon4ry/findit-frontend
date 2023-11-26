@@ -1,4 +1,8 @@
 //TODO: Adaptive
+.dashboardError {
+  @apply flex w-full h-full justify-center items-center text-lg text-center p-5 bg-gray-50 border rounded font-medium tracking-wide;
+}
+
 .dashboardNotices, .dashboardProjects, .dashboardResponsesOffers {
   @apply flex flex-col py-5 px-3.5;
 
@@ -6,15 +10,19 @@
     @apply px-2 py-1 font-medium;
   }
 
-  > ol {
+  > div {
+    @apply h-full;
+  }
+
+  ol {
     @apply flex flex-col bg-gray-50 rounded border shadow-sm h-full;
-    @apply overflow-y-scroll overflow-x-hidden pointer-events-auto;
+    @apply overflow-x-hidden pointer-events-auto;
 
     > li {
       @apply bg-white border-b flex flex-col;
 
       * {
-        @apply pointer-events-none
+        @apply pointer-events-none;
       }
 
       &:last-child {
