@@ -35,7 +35,7 @@ export type User = {
     lastLogin: Date;
     history: { ip: string; strategy: string; success: boolean; date: Date }[];
   };
-  userToProjects?: ProjectsToUsers[];
+  userToProjects?: Partial<ProjectsToUsers>[];
   updatedAt: Date;
   createdAt: Date;
 };

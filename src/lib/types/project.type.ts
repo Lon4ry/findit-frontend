@@ -18,7 +18,7 @@ export type Project = {
 
   budget: string;
 
-  projectToUsers?: ProjectsToUsers[];
+  projectToUsers?: Partial<ProjectsToUsers>[];
 
   updatedAt: Date;
 

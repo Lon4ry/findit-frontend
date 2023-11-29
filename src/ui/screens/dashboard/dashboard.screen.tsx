@@ -1,8 +1,8 @@
 import styles from './dashboard.module.scss';
-import DashboardNotices from '@/ui/screens/dashboard/dashboard-notices';
-import DashboardResponsesOffers from '@/ui/screens/dashboard/dashboard-responses-offers';
-import DashboardProjects from '@/ui/screens/dashboard/dashboard-projects';
-import DashboardSubscription from '@/ui/screens/dashboard/dashboard-subscription';
+import DashboardNotices from '@/ui/screens/dashboard/dashboard-notices/dashboard-notices';
+import DashboardResponsesOffers from '@/ui/screens/dashboard/dashboard-responses-offers/dashboard-responses-offers';
+import DashboardSubscription from '@/ui/screens/dashboard/dashboard-subscription/dashboard-subscription';
+import DashboardProjects from '@/ui/screens/dashboard/dashboard-projects/dashboard-projects';
 
 const DashboardScreen = () => {
   return (

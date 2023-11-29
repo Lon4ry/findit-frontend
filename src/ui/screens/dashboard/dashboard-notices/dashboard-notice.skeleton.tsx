@@ -1,9 +1,9 @@
-import styles from './dashboard-skeletons.module.scss';
+import styles from '../dashboard-skeletons.module.scss';
 import { XMarkIcon } from '@heroicons/react/20/solid';
 
 const DashboardNoticeSkeleton = () => {
   const skeletonArr = new Array(10);
-  for (let i = 0; i < skeletonArr.length; i++) skeletonArr.push(i);
+  for (let i = 0; i < skeletonArr.length; i++) skeletonArr[i] = i;
 
   return (
     <>

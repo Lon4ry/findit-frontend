@@ -10,7 +10,7 @@ export type ProjectsToUsers = {
 
   permissions: string[];
 
-  user?: User;
+  user?: Partial<User>;
 
-  project?: Project;
+  project?: Partial<Project>;
 };
