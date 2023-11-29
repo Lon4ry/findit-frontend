@@ -1,32 +1,20 @@
 import styles from '../dashboard-content.module.scss';
 import DashboardNotice from '@/ui/screens/dashboard/dashboard-notices/dashboard-notice';
-import { MutableRefObject, Suspense, useRef, useState } from 'react';
+import { MutableRefObject, Suspense, useRef } from 'react';
 import DashboardNoticeSkeleton from '@/ui/screens/dashboard/dashboard-notices/dashboard-notice.skeleton';
-import useDashboardLength from '@/lib/hooks/dashboard/use-dashboard-length.hook';
-import useDashboardScroll from '@/lib/hooks/dashboard/use-dashboard-scroll.hook';
+import useDashboardInit from '@/lib/hooks/dashboard/use-dashboard-init';
 
 const DashboardNotices = () => {
   const listRef: MutableRefObject<HTMLOListElement> =
     useRef<HTMLOListElement>(null);
-  const [notices, setNotices] = useState([]);
 
-  const length = useDashboardLength({
-    type: 'notices',
-    setFunction: setNotices,
-    listRef,
-  });
-  useDashboardScroll({
-    mountedLength: notices.length,
-    setFunction: setNotices,
-    listRef,
-    length,
-  });
+  const notices = useDashboardInit(listRef, 'notices');
 
   return (
     <div className={styles.dashboardNotices}>
       <h2>Уведомления</h2>
       <ol ref={listRef} className={'overflow-y-scroll'} id={'projectsList'}>
-        {length > 0 &&
+        {notices.length > 0 &&
           [...notices].map((_, index) => (
             <Suspense key={index} fallback={<DashboardNoticeSkeleton />}>
               <DashboardNotice index={index} />

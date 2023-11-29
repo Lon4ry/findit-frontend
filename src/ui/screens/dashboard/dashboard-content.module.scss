@@ -24,17 +24,15 @@
       &:last-child {
         @apply border-none;
       }
-
-      &:nth-child(-n+5) {
-        @apply border-b border-solid;
-      }
     }
   }
 }
 
-.dashboardProject, .dashboardNotice {
-  @apply flex flex-row justify-between p-3.5;
+.dashboardProject, .dashboardNotice, .dashboardResponseOffer {
+  @apply flex flex-row justify-between p-3.5 h-[70px];
+}
 
+.dashboardProject, .dashboardNotice {
   > div {
     &:first-child {
       @apply flex flex-col justify-between;
@@ -94,6 +92,26 @@
 
       > h6 {
         @apply text-xs text-gray-500 font-medium;
+      }
+    }
+  }
+}
+
+.dashboardResponseOffer {
+  > div {
+    @apply flex flex-row gap-1;
+
+    > div {
+      @apply flex flex-col justify-center items-center;
+
+      > svg {
+        @apply w-5 text-gray-500;
+      }
+
+      &:last-child {
+        > h1 {
+          
+        }
       }
     }
   }

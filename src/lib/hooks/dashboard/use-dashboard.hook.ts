@@ -1,50 +1,9 @@
-import { useEffect, useState } from 'react';
-import axiosInstance from '@/lib/axios';
-
-const promiseWrapper = (promise: any) => {
-  let status = 'pending';
-  let result: any;
-
-  const s = promise.then(
-    (value: any) => {
-      status = 'success';
-      result = value[0][0];
-    },
-    (error: any) => {
-      status = 'error';
-      result = error;
-    },
-  );
-
-  return () => {
-    switch (status) {
-      case 'pending':
-        throw s;
-      case 'success':
-        return result;
-      case 'error':
-        throw result;
-      default:
-        throw new Error('Unknown status');
-    }
-  };
-};
+import useGetData from '@/lib/hooks/use-get-data.hook';
 
 function useDashboard(type: string, skip = 0) {
-  const [resource, setResource] = useState(null);
+  const data = useGetData(`/api/dashboard/${type}?skip=${skip}&take=${1}`);
 
-  useEffect(() => {
-    const getData = async () => {
-      const promise = axiosInstance
-        .get(`/api/dashboard/${type}?skip=${skip}&take=${1}`)
-        .then((response) => response.data);
-      setResource(promiseWrapper(promise));
-    };
-
-    getData().then();
-  }, [type, skip]);
-
-  return resource;
+  return data ? data[0][0] : data;
 }
 
 export default useDashboard;

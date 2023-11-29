@@ -5,16 +5,10 @@ const DashboardResponseOfferSkeleton = () => {
     <li>
       <div className={styles.dashboardResponseOfferSkeleton}>
         <div>
-          <h1 />
-          <div>
-            <h6 />
-            <h6 />
-            <h6 />
-          </div>
+          <div />
+          <div />
         </div>
-        <div>
-          <button />
-        </div>
+        <div />
       </div>
     </li>
   );

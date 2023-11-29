@@ -1,5 +1,5 @@
-.dashboardProjectSkeleton, .dashboardNoticeSkeleton {
-  @apply flex flex-row justify-between p-3.5 bg-white ;
+.dashboardProjectSkeleton, .dashboardNoticeSkeleton, .dashboardResponseOfferSkeleton {
+  @apply flex flex-row justify-between p-3.5 bg-white h-[70px];
 
   > div {
     &:first-child {
