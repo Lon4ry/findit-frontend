@@ -1,5 +1,5 @@
 import { MutableRefObject, useEffect } from 'react';
-import useGetData from '@/lib/hooks/use-get-data.hook';
+import useGetData from '@/lib/hooks-contexts/use-get-data.hook';
 
 function useDashboardLength({
   type,

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import axiosInstance from '@/lib/axios';
+import { axiosInstance } from '@/lib/axios';
 
 const promiseWrapper = (promise: any) => {
   let status = 'pending';
@@ -41,6 +41,9 @@ const useGetData = (url: string) => {
 
     getData().then();
   }, [url]);
+
+  if (typeof data === 'string' && data.includes('error')) throw new Error(data);
+  else if (data && 'error' in data) throw new Error(data.error);
 
   return data;
 };

@@ -1,6 +1,6 @@
-import { ProjectsToUsers } from '@/lib/types/projects-to-users.type';
+import { ProjectsToUsersType } from '@/lib/types/projects-to-users.type';
 
-export type Project = {
+export type ProjectType = Partial<{
   id: string;
 
   title: string;
@@ -18,11 +18,11 @@ export type Project = {
 
   budget: string;
 
-  projectToUsers?: Partial<ProjectsToUsers>[];
+  projectToUsers?: ProjectsToUsersType[];
 
   updatedAt: Date;
 
   createdAt: Date;
 
   history: { action: string; date: Date }[];
-};
+}>;

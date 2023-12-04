@@ -1,6 +1,6 @@
-import { ProjectsToUsers } from '@/lib/types/projects-to-users.type';
+import { ProjectsToUsersType } from '@/lib/types/projects-to-users.type';
 
-export type User = {
+export type UserType = Partial<{
   id: string;
   subscription: { type: string; expiresIn: Date };
   history: { action: string; date: Date }[];
@@ -35,7 +35,7 @@ export type User = {
     lastLogin: Date;
     history: { ip: string; strategy: string; success: boolean; date: Date }[];
   };
-  userToProjects?: Partial<ProjectsToUsers>[];
+  userToProjects: ProjectsToUsersType[];
   updatedAt: Date;
   createdAt: Date;
-};
+}>;

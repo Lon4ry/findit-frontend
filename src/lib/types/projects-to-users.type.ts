@@ -1,7 +1,7 @@
-import { Project } from '@/lib/types/project.type';
-import { User } from '@/lib/types/user.type';
+import { ProjectType } from '@/lib/types/project.type';
+import { UserType } from '@/lib/types/user.type';
 
-export type ProjectsToUsers = {
+export type ProjectsToUsersType = Partial<{
   id: string;
 
   isOwner: boolean;
@@ -10,7 +10,7 @@ export type ProjectsToUsers = {
 
   permissions: string[];
 
-  user?: Partial<User>;
+  user: UserType;
 
-  project?: Partial<Project>;
-};
+  project: ProjectType;
+}>;

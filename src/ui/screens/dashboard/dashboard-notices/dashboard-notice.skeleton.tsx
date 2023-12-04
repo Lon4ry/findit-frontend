@@ -9,7 +9,7 @@ const DashboardNoticeSkeleton = () => {
     <>
       {skeletonArr.map((v) => (
         <li key={v}>
-          <div className={styles.dashboardNoticeSkeleton}>
+          <div className={styles.noticeSkeleton}>
             <div>
               <h1 />
               <h6 />

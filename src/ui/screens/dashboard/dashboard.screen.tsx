@@ -6,7 +6,7 @@ import DashboardProjects from '@/ui/screens/dashboard/dashboard-projects/dashboa
 
 const DashboardScreen = () => {
   return (
-    <main className={styles.dashboardScreen}>
+    <main className={styles.screen}>
       <DashboardNotices />
       <DashboardResponsesOffers />
       <DashboardProjects />

@@ -1,6 +1,6 @@
 import { MutableRefObject, useState } from 'react';
-import useDashboardLength from '@/lib/hooks/dashboard/use-dashboard-length.hook';
-import useDashboardScroll from '@/lib/hooks/dashboard/use-dashboard-scroll.hook';
+import useDashboardLength from '@/lib/hooks-contexts/dashboard/use-dashboard-length.hook';
+import useDashboardScroll from '@/lib/hooks-contexts/dashboard/use-dashboard-scroll.hook';
 
 const useDashboardInit = (
   listRef: MutableRefObject<HTMLOListElement | HTMLUListElement>,

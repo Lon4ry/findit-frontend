@@ -3,7 +3,7 @@ import styles from '../dashboard-skeletons.module.scss';
 const DashboardProjectSkeleton = () => {
   return (
     <li>
-      <div className={styles.dashboardProjectSkeleton}>
+      <div className={styles.projectSkeleton}>
         <div>
           <h1 />
           <div>
