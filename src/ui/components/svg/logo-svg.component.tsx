@@ -1,4 +1,4 @@
-import { SvgComponentProps } from '../svg-component-props.type';
+import { SvgComponentProps } from './svg-component-props.type';
 
 export default function LogoSvgComponent({ className }: SvgComponentProps) {
   return (

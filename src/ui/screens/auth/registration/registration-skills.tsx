@@ -36,12 +36,12 @@ const RegistrationSkills = ({
       leaveFrom={'translate-x-0 filter-none'}
       leaveTo={'-translate-x-[300%] blur'}
     >
-      <div className={styles.registrationNumberInput}>
+      <div className={styles.numberInput}>
         <h2>Что насчет твоих навыков?</h2>
         <div>
           <NumberInputComponent
             defaultValue={0}
-            label={'Project Management:'}
+            label={'ProjectType Management:'}
             min={0}
             max={10}
             name={'skills.ProjectManagement'}

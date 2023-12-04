@@ -3,7 +3,7 @@ import styles from './home-content.module.scss';
 
 const HomeStartButton = ({ handleClick }: ButtonProps) => {
   return (
-    <div className={styles.homeStartButton}>
+    <div className={styles.startButton}>
       <button onClick={() => handleClick('/auth/login')}>Начать</button>
       <button onClick={() => handleClick('/help/faq')}>
         Нужна помощь? <span>Посмотрите FAQ</span>

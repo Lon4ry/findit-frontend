@@ -1,4 +1,4 @@
-.registrationTextInput {
+.textInput {
   @apply flex flex-col gap-5 w-1/3 items-center;
 
   > h2 {
@@ -6,7 +6,7 @@
   }
 }
 
-.registrationNumberInput {
+.numberInput {
   @apply flex flex-col gap-10 w-1/3 items-center;
 
   > h2 {

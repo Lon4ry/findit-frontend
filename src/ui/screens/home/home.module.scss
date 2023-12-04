@@ -1,8 +1,8 @@
-.homeScreenHeader {
+.screenHeader {
   @apply fixed w-1/4 top-[8vh] right-[10vw];
 }
 
-.homeScreenMain {
+.screenMain {
   @apply flex-col w-full items-center justify-center;
 
   > div {

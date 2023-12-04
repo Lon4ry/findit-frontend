@@ -24,7 +24,7 @@ const RegistrationEmail = ({
       leaveFrom={'translate-x-0 filter-none'}
       leaveTo={'-translate-x-[300%] blur'}
     >
-      <div className={styles.registrationTextInput}>
+      <div className={styles.textInput}>
         <h2>Укажи свою почту, чтобы мы смогли связаться с тобой</h2>
         <SplitTextInputComponent
           name={'email'}

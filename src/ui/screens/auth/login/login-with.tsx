@@ -1,4 +1,4 @@
-import ExternalAuthButton from '@/ui/components/external-auth-button';
+import ExternalAuthButton from '@/ui/components/external-auth/external-auth-button';
 import { loginUrls } from '@/ui/screens/auth/login/login-urls';
 import styles from './login-with.module.scss';
 

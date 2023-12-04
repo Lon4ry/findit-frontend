@@ -25,7 +25,7 @@ const RegistrationIntroduce = ({
       leaveFrom={'translate-x-0 filter-none'}
       leaveTo={'-translate-x-[300%] blur'}
     >
-      <div className={styles.registrationIntroduce}>
+      <div className={styles.introduce}>
         <h2>Давай познакомимся</h2>
         <div>
           <button type={'button'} onClick={nextStep}>

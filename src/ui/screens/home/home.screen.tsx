@@ -1,6 +1,6 @@
 'use client';
-import RadialGradientBackgroundComponent from '@/ui/components/radial-gradient-bg.component';
-import LogoSvgComponent from '@/ui/components/svg/logo-components/logo-svg.component';
+import RadialGradientBackgroundComponent from '@/ui/components/radial-gradient-bg/radial-gradient-bg.component';
+import LogoSvgComponent from '@/ui/components/svg/logo-svg.component';
 import styles from './home.module.scss';
 import { Transition } from '@headlessui/react';
 import { useRouter } from 'next/navigation';
@@ -17,10 +17,10 @@ const HomeScreen = () => {
   return (
     <>
       <RadialGradientBackgroundComponent />
-      <header className={styles.homeScreenHeader}>
+      <header className={styles.screenHeader}>
         <LogoSvgComponent />
       </header>
-      <main className={styles.homeScreenMain}>
+      <main className={styles.sreenMain}>
         <div>
           <div>
             <HomeHeader />

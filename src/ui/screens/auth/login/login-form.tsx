@@ -24,7 +24,7 @@ const LoginForm = ({ push }: { push: (...args: any[]) => void }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={styles.loginForm}>
+    <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
       <div className={ibmPlexMono.className}>
         <div>
           <label htmlFor={'uniq'}>Логин/электронная почта</label>

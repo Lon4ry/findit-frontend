@@ -24,7 +24,7 @@ const RegistrationUsername = ({
       leaveFrom={'translate-x-0 filter-none'}
       leaveTo={'-translate-x-[300%] blur'}
     >
-      <div className={styles.registrationTextInput}>
+      <div className={styles.textInput}>
         <h2>Давай определимся с публичным именем</h2>
         <SplitTextInputComponent
           name={'username'}

@@ -3,7 +3,7 @@ import styles from './home-content.module.scss';
 
 const HomeHeader = () => {
   return (
-    <header className={styles.homeHeader}>
+    <header className={styles.header}>
       <h1 className={ibmPlexMono.className}>
         <span>Find IT</span> — первое кроссплатформенное приложение для{' '}
         <span>предпринимателей</span>

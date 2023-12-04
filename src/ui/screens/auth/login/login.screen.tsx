@@ -30,7 +30,7 @@ const LoginScreen = () => {
       leaveTo={'opacity-0 backdrop-blur'}
       afterLeave={() => router.push(url)}
     >
-      <main className={styles.loginScreen}>
+      <main className={styles.screen}>
         <div>
           {loginUrls.map((u) => (
             <Link key={u.id} href={u.href} />

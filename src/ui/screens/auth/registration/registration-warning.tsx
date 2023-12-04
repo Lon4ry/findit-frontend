@@ -30,7 +30,7 @@ const RegistrationWarning = ({
       afterEnter={() => setShow(false)}
       afterLeave={() => setShow(true)}
     >
-      <div className={styles.registrationWarning}>
+      <div className={styles.warning}>
         <h6 className={ibmPlexMono.className}>{text}</h6>
       </div>
     </Transition>

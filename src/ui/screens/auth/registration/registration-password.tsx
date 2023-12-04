@@ -24,7 +24,7 @@ const RegistrationPassword = ({
       leaveFrom={'translate-x-0 filter-none'}
       leaveTo={'-translate-x-[300%] blur'}
     >
-      <div className={styles.registrationTextInput}>
+      <div className={styles.textInput}>
         <h2>И последнее... твой пароль</h2>
         <SplitTextInputComponent
           isLast={true}

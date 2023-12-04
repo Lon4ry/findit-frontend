@@ -77,7 +77,7 @@ const RegistrationScreen = () => {
       leaveTo={'opacity-0 backdrop-blur'}
       afterLeave={() => router.replace('/auth/login')}
     >
-      <main className={styles.registrationScreen}>
+      <main className={styles.screen}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <RegistrationIntroduce
             show={step === 0}
