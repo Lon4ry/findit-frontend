@@ -1,14 +1,17 @@
 'use client';
 
-import DashboardScreen from '@/ui/screens/dashboard/dashboard.screen';
+import { DashboardProvider } from '@/lib/hooks-contexts/dashboard.context';
 import { UserProvider } from '@/lib/hooks-contexts/user.context';
 import SidebarComponent from '@/ui/components/sidebar/sidebar.component';
+import DashboardScreen from '@/ui/screens/dashboard/dashboard.screen';
 
 const DashboardPage = () => {
   return (
     <UserProvider>
-      <DashboardScreen />
-      <SidebarComponent />
+      <DashboardProvider>
+        <DashboardScreen />
+        <SidebarComponent />
+      </DashboardProvider>
     </UserProvider>
   );
 };

@@ -1,25 +1,31 @@
+import { useDashboardContext } from '@/lib/hooks-contexts/dashboard.context';
 import useDashboard from '@/lib/hooks-contexts/dashboard/use-dashboard.hook';
-import styles from '@/ui/screens/dashboard/dashboard-content.module.scss';
-import { CheckIcon, ClockIcon } from '@heroicons/react/24/outline';
-import { useUser } from '@/lib/hooks-contexts/user.context';
-import { UserType } from '@/lib/types/user.type';
-import { XMarkIcon } from '@heroicons/react/20/solid';
 import { ProjectType } from '@/lib/types/project.type';
+import styles from '@/ui/screens/dashboard/dashboard-content.module.scss';
+import { XMarkIcon } from '@heroicons/react/20/solid';
+import { CheckIcon, ClockIcon } from '@heroicons/react/24/outline';
+import { useEffect, useRef } from 'react';
 
 const DashboardResponseOffer = ({ index }: { index: number }) => {
-  const user: UserType = useUser();
-
   const responseOffer: ProjectType = useDashboard('responses-offers', index);
+  const ref = useRef<HTMLLIElement>(null);
+
+  const { user, setResponsesOffers } = useDashboardContext();
+  useEffect(() => {
+    responseOffer &&
+      setResponsesOffers((prevState) => [...prevState, responseOffer]);
+  }, [responseOffer, setResponsesOffers]);
 
   const status =
     responseOffer &&
+    user &&
     responseOffer.projectToUsers.find((value) => value.user.id === user.id)
       .status;
 
   return (
     user &&
     responseOffer && (
-      <li key={responseOffer.id}>
+      <li key={responseOffer.id} ref={ref}>
         <div className={styles.responseOffer}>
           <div>
             <div>

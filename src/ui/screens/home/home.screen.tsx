@@ -20,7 +20,7 @@ const HomeScreen = () => {
       <header className={styles.screenHeader}>
         <LogoSvgComponent />
       </header>
-      <main className={styles.sreenMain}>
+      <main className={styles.screenMain}>
         <div>
           <div>
             <HomeHeader />

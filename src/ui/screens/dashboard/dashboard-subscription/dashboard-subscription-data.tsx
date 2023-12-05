@@ -1,30 +1,25 @@
-import styles from '@/ui/screens/dashboard/dashboard-content.module.scss';
 import { ibmPlexMono } from '@/lib/fonts';
-import { useUser } from '@/lib/hooks-contexts/user.context';
+import { useDashboardContext } from '@/lib/hooks-contexts/dashboard.context';
+import styles from '@/ui/screens/dashboard/dashboard-content.module.scss';
 
 const DashboardSubscriptionData = () => {
-  const user = useUser();
+  const { subscription } = useDashboardContext();
 
   return (
-    user && (
+    subscription && (
       <div className={`${styles.subscription} ${ibmPlexMono.className}`}>
-        <h3>
-          {user.subscription.type ? user.subscription.type : 'Отсутствует'}
-        </h3>
+        <h3>{subscription.type ? subscription.type : 'Отсутствует'}</h3>
         <div
           className={
-            user.subscription.type
-              ? styles.thanksImage
-              : styles.noSubscriptionImage
+            subscription.type ? styles.thanksImage : styles.noSubscriptionImage
           }
         />
-        {user.subscription.type && user.subscription.expiresIn && (
+        {subscription.type && subscription.expiresIn && (
           <h3>
-            Действует до{' '}
-            {new Date(user.subscription.expiresIn).toLocaleDateString()}
+            Действует до {new Date(subscription.expiresIn).toLocaleDateString()}
           </h3>
         )}
-        {!user.subscription.type && <button>Управлять</button>}
+        {!subscription.type && <button>Управлять</button>}
       </div>
     )
   );

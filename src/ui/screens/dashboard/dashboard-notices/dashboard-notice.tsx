@@ -1,13 +1,19 @@
-import styles from '@/ui/screens/dashboard/dashboard-content.module.scss';
-import { XMarkIcon } from '@heroicons/react/20/solid';
+import { axiosInstance } from '@/lib/axios';
+import { useDashboardContext } from '@/lib/hooks-contexts/dashboard.context';
 import useDashboard from '@/lib/hooks-contexts/dashboard/use-dashboard.hook';
 import { NoticeType } from '@/lib/types/notice.type';
-import { axiosInstance } from '@/lib/axios';
-import { useRef } from 'react';
+import styles from '@/ui/screens/dashboard/dashboard-content.module.scss';
+import { XMarkIcon } from '@heroicons/react/20/solid';
+import { useEffect, useRef } from 'react';
 
 const DashboardNotice = ({ index }: { index: number }) => {
   const notice: NoticeType = useDashboard('notices', index);
   const ref = useRef<HTMLLIElement>(null);
+
+  const { setNotices } = useDashboardContext();
+  useEffect(() => {
+    notice && setNotices((prevState) => [...prevState, notice]);
+  }, [notice, setNotices]);
 
   const removeNotice = () => {
     axiosInstance

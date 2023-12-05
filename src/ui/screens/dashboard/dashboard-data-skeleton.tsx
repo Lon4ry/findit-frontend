@@ -19,8 +19,8 @@ const DashboardDataSkeleton = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <ol ref={listRef} className={'overflow-y-hidden'}>
-      {[...new Array(length)].map(() => (
-        <>{children}</>
+      {[...new Array(length)].map((_, index) => (
+        <div key={index}>{children}</div>
       ))}
     </ol>
   );

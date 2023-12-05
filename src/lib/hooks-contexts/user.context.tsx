@@ -1,6 +1,6 @@
-import React, { createContext, useContext } from 'react';
 import useGetData from '@/lib/hooks-contexts/use-get-data.hook';
 import { UserType } from '@/lib/types/user.type';
+import React, { createContext, useContext } from 'react';
 
 const UserContext = createContext<UserType>(null);
 
